@@ -10,8 +10,8 @@ class Article extends Model
 
     protected $primaryKey = "id";
 
-//    public function Category()
-//    {
-//        return $this->hasOne("App\Entity\Category", "id", "category_id");
-//    }
+    public function Category()
+    {
+        return $this->hasOne("App\Entity\Category", "id", "category_id");
+    }
 }

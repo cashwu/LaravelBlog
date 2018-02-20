@@ -30,6 +30,6 @@ class HomeController extends Controller
             "articles" => $articles
         ];
 
-        return view("Home.index", $model);
+        return view("home.index", $model);
     }
 }

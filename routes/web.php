@@ -12,3 +12,5 @@
 */
 
 Route::get('/', "HomeController@Index");
+
+Route::get("/article/details/{article_id}", "ArticleController@Details");
