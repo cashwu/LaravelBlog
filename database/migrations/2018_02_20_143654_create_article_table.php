@@ -19,7 +19,7 @@ class CreateArticleTable extends Migration
             $table->string("subject", 100);
             $table->string("summary", 1024);
             $table->string("content");
-            $table->boolean("IsPublish");
+            $table->boolean("is_publish");
             $table->dateTime("publish_date");
             $table->integer("view_count");
             $table->timestamps();
