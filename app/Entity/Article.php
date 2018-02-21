@@ -10,7 +10,7 @@ class Article extends Model
 
     protected $primaryKey = "id";
 
-//    protected $dateFormat = 'Y-m-d H:i:s';
+    protected $dateFormat = 'Y-m-d H:i:s';
 
     protected $dates = [
         'created_at',
