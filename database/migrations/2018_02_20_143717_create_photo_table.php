@@ -13,7 +13,7 @@ class CreatePhotoTable extends Migration
      */
     public function up()
     {
-        Schema::create('Photo', function (Blueprint $table) {
+        Schema::create('photo', function (Blueprint $table) {
             $table->increments('id');
             $table->integer("article_id");
             $table->string("file_name", 128);
