@@ -10,6 +10,7 @@ namespace App\Http\Controllers;
 
 
 use App\Entity\Article;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
@@ -24,6 +25,8 @@ class ArticleController extends Controller
                     ->get();
 
 //        dd($article[0] -> Category -> name);
+
+        $article[0] -> created_at = new Carbon($article[0] -> created_at);
 
         $model = [
             "title" => "Article",
