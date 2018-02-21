@@ -49,4 +49,6 @@ class AdminController extends Controller
         session()->forget("user_id");
         return redirect("/admin/login");
     }
+
+
 }

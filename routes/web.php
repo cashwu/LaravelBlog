@@ -15,6 +15,8 @@ Route::get('/', "HomeController@Index");
 
 Route::get("/article/details/{article_id}", "ArticleController@Details");
 
+Route::get("/article", "ArticleController@Index");
+
 Route::group(["prefix" => "admin"], function () {
 
     Route::get("/login", "AdminController@Login");

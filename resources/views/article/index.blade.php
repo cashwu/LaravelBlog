@@ -1,15 +1,17 @@
 @extends("common.layout")
 
-@section("title", "Admin")
+@section("title", $title)
 
 @section("navbar")
-    @include("common.navbar_admin")
+    @include("common.navbar")
 @endsection
-
 
 @section("content")
 
-    <div style="margin-top: 70px;"></div>
+    <ul class="breadcrumb" style="margin-top: 70px;">
+        <li><a href="{{ url("/") }}">首頁</a><span> > </span></li>
+        <li><a href="{{ url("/article") }}">文章列表</a></li>
+    </ul>
 
     <div class="container">
         <div class="row">
@@ -34,5 +36,8 @@
                 @endforeach
             </div>
         </div>
-        Admin
+    </div>
+
+    {{ $articles->links() }}
+
 @endsection

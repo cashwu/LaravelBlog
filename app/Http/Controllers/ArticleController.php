@@ -15,6 +15,21 @@ use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
 {
+    public function Index()
+    {
+        $articles = Article::where("is_publish", "=", 1)
+            ->where("publish_date", "<=", date("Y-m-d"))
+            ->orderBy("created_at", "desc")
+            ->paginate(parent::rowPerPage);
+
+        $model = [
+            "title" => "Article List",
+            "articles" => $articles
+        ];
+
+        return view("article.index", $model);
+    }
+
     public function details($article_id)
     {
 //        DB::enableQueryLog();
@@ -35,4 +50,5 @@ class ArticleController extends Controller
 
         return view("article.details", $model);
     }
+
 }
