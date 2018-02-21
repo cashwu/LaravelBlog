@@ -21,7 +21,7 @@
                 <fieldset>
                     <legend>最新文章</legend>
                     @foreach($articles as $article)
-                        <div class="card mb-12 box-shadow">
+                        <div class="card mb-4 box-shadow">
                             <div class="card-body">
                                 <h2>{{ $article -> subject }}</h2>
                                 <p class="card-text">{{ $article -> summary }}</p>
