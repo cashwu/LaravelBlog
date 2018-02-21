@@ -14,3 +14,22 @@
 Route::get('/', "HomeController@Index");
 
 Route::get("/article/details/{article_id}", "ArticleController@Details");
+
+Route::group(["prefix" => "admin"], function () {
+
+    Route::get("/login", "AdminController@Login");
+
+    Route::post("/login", "AdminController@LoginPost");
+
+    Route::group(["middleware" => ["authAdmin"]], function () {
+
+        Route::get("/", "AdminController@Index");
+
+        Route::post("/logout", "AdminController@Logout");
+    });
+});
+
+
+
+
+

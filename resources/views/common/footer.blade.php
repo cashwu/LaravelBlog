@@ -1,4 +1,4 @@
 <hr>
-<footer class="container">
+<footer class="">
     <p>&copy; Cash @ 2018</p>
 </footer>

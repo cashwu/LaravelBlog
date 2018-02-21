@@ -1,6 +1,11 @@
 @extends("common.layout")
 
 @section("title", $title)
+
+@section("navbar")
+    @include("common.navbar")
+@endsection
+
 @section("content")
 
     <div class="jumbotron">

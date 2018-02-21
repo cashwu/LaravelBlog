@@ -8,16 +8,14 @@
     <title>@yield("title")</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    {{--<link href="{{ asset("content/bootstrap.css")  }}" rel="stylesheet"/>--}}
-    {{--<link href="{{ asset("content/bootstrap-responsive.css") }}" rel="stylesheet"/>--}}
-    {{--<link href="{{ asset("content/Frontend.css") }}" rel="stylesheet"/>--}}
 </head>
 <body>
-@include("common.navbar")
 
-<main role="main">
+@yield("navbar")
 
-@yield("content")
+<main role="main" class="container">
+
+    @yield("content")
 
 </main>
 
@@ -32,8 +30,5 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-
-{{--<script src="{{ asset("script/jquery-1.9.1.min.js") }}"></script>--}}
-{{--<script src="{{ asset("script/bootstrap.min.js") }}"></script>--}}
 </body>
 </html>
