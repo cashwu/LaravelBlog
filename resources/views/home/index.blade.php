@@ -31,7 +31,8 @@
                                            href="{{ url("/article/details/".$article->id) }}"> Detail</a>
                                     </div>
                                     <small class="text-muted">
-                                        <i class="icon-calendar"></i> {{ date("Y-m-d", strtotime($article -> created_at)) }}
+                                        <i class="icon-calendar"> </i>
+                                        {{  $article -> created_at }}
                                     </small>
                                 </div>
                             </div>
