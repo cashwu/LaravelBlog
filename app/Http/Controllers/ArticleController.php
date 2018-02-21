@@ -32,20 +32,16 @@ class ArticleController extends Controller
 
     public function details($article_id)
     {
-//        DB::enableQueryLog();
-
         $article = Article::where("id", $article_id)
                     ->with("Category")
-                    ->first()
-                    ->get();
+                    ->first();
 
-//        dd($article[0] -> Category -> name);
-
-        $article[0] -> created_at = new Carbon($article[0] -> created_at);
+        $article -> view_count += 1;
+        $article -> save();
 
         $model = [
             "title" => "Article",
-            "article" => $article[0]
+            "article" => $article
         ];
 
         return view("article.details", $model);
