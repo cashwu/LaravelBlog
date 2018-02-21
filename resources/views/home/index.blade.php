@@ -2,30 +2,39 @@
 
 @section("title", $title)
 @section("content")
-    <div class="hero-unit">
-        <h1>CashWu - Blog</h1>
-        <br/>
-        <p class="lead">
-            Hello !!
-        </p>
+
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-3">Cash Wu Blog</h1>
+            <p>My Coding, My Life</p>
+        </div>
     </div>
 
-    <fieldset>
-        <legend>最新文章</legend>
+    <div class="container">
         <div class="row">
-            @foreach($articles as $article)
-                <div class="span8">
-                    <h4>
-                        <a href="{{ url("/article/details/".$article->id) }}"> {{ $article -> subject }} </a>
-                    </h4>
-                    <p>
-                        {{ $article -> summary }}
-                    </p>
-                    <p class="pull-right">
-                        <i class="icon-calendar"></i> {{ date("Y-m-d", strtotime($article -> created_at)) }}
-                    </p>
-                </div>
-            @endforeach
+            <div class="col-md-12">
+                <fieldset>
+                    <legend>最新文章</legend>
+                    @foreach($articles as $article)
+                        <div class="card mb-12 box-shadow">
+                            <div class="card-body">
+                                <h2>{{ $article -> subject }}</h2>
+                                <p class="card-text">{{ $article -> summary }}</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a class="btn btn-sm btn-info" role="button"
+                                           href="{{ url("/article/details/".$article->id) }}"> Detail</a>
+                                    </div>
+                                    <small class="text-muted">
+                                        <i class="icon-calendar"></i> {{ date("Y-m-d", strtotime($article -> created_at)) }}
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </fieldset>
+            </div>
         </div>
-    </fieldset>
+
+    </div>
 @endsection
