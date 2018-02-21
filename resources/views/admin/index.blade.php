@@ -13,9 +13,12 @@
 
     <div class="container">
         <div class="row">
+
+        </div>
+        <div class="row">
             <div class="col-md-12">
                 @foreach($articles as $article)
-                    <div class="card mb-12 box-shadow">
+                    <div class="card mb-4 box-shadow">
                         <div class="card-body">
                             <h2>{{ $article -> subject }}</h2>
                             <p class="card-text">{{ $article -> summary }}</p>
@@ -34,5 +37,8 @@
                 @endforeach
             </div>
         </div>
-        Admin
+    </div>
+
+    {{ $articles->links() }}
+
 @endsection

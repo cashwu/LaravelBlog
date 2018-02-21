@@ -9,6 +9,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Entity\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -41,7 +42,15 @@ class AdminController extends Controller
 
     public function Index()
     {
-        return view("admin.index");
+        $articles = Article::orderBy("created_at", "desc")
+                ->paginate(parent::rowPerPage);
+
+        $model = [
+            "title" => "Article List",
+            "articles" => $articles
+        ];
+
+        return view("admin.index", $model);
     }
 
     public function logout()
