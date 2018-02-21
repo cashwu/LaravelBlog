@@ -25,10 +25,6 @@ class HomeController extends Controller
             ->take(5)
             ->get();
 
-        foreach ($articles as $article) {
-            $article->created_at = new Carbon($article->created_at);
-        }
-
         $model = [
             "title" => "Index",
 //            "categories" => $categories,
