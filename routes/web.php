@@ -33,6 +33,8 @@ Route::group(["prefix" => "admin"], function () {
 
             Route::get("/create", "AdminArticleController@create");
 
+            Route::post("/create", "AdminArticleController@createPost");
+
             Route::get("/edit/{article_id}", "AdminArticleController@edit");
 
             Route::get("/delete/{article_id}", "AdminArticleController@delete");

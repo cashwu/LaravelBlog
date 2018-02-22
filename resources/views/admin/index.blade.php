@@ -90,3 +90,4 @@
     {{ $articles->links() }}
 
 @endsection
+
