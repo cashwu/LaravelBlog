@@ -16,6 +16,17 @@ class Article extends Model
         'publish_date'
     ];
 
+    protected $fillable = [
+        "id",
+        "category_id",
+        "subject",
+        "summary",
+        "content",
+        "publish_date",
+        "is_publish",
+        "view_count"
+    ];
+
     public function Category()
     {
         return $this->hasOne("App\Entity\Category", "id", "category_id");

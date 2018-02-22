@@ -9,7 +9,9 @@
 namespace App\Http\Controllers;
 
 
+use App\Entity\Article;
 use App\Entity\Category;
+use Illuminate\Support\Facades\Validator;
 
 class AdminArticleController extends Controller
 {
@@ -28,9 +30,27 @@ class AdminArticleController extends Controller
     {
         $input = request()->all();
 
-        dd($input);
-    }
+        $rules = [
+            "category_id" => ["required", "integer"],
+            "subject" => ["required", "max:100"],
+            "summary" => ["required", "max:1024"],
+            "content" => ["required", "max:2000"]
+        ];
 
+        $validator = Validator::make($input, $rules);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)->withInput();
+        }
+
+        $input["is_publish"] = request()->has("is_publish");
+        $input["view_count"] = 0;
+
+        Article::create($input);
+
+        return redirect("/admin");
+    }
 
     public function edit()
     {
