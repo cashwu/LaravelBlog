@@ -32,7 +32,7 @@
                                     </div>
                                     <small class="text-muted">
                                         <i class="icon-calendar"> </i>
-                                        {{ Carbon\Carbon::parse($article -> created_at)->format('Y-m-d') }}
+                                        {{ date("Y-m-d", strtotime($article -> publish_date)) }}
                                     </small>
                                 </div>
                             </div>
