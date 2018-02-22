@@ -56,8 +56,8 @@
                             <td> {{ $article -> id }} </td>
                             <td> {{ $article -> category -> name }} </td>
                             <td> {{ $article -> subject }} </td>
-                            <td> {{ $article -> is_publish === 1 ? "是" : "否" }} </td>
-                            <td> {{ $article -> publish_date }} </td>
+                            <td> {{ $article -> is_publish ? "是" : "否" }} </td>
+                            <td> {{ date("Y-m-d", strtotime($article -> publish_date)) }} </td>
                             <td> {{ $article -> view_count }} </td>
                             <td> {{ $article -> created_at }} </td>
                             <td> {{ $article -> updated_at }} </td>
