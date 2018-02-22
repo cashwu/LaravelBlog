@@ -45,6 +45,11 @@ Route::group(["prefix" => "admin"], function () {
 
             Route::get("/details/{article_id}", "AdminArticleController@details");
         });
+
+        Route::group(["prefix" => "category"], function () {
+
+            Route::get("/", "AdminCategoryController@index");
+        });
     });
 });
 

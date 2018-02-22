@@ -4,6 +4,12 @@
             <li class="nav-item active">
                 <a class="nav-link" href="{{ url("/") }}">Home</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url("/admin") }}">Article</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url("/admin/category") }}">Category</a>
+            </li>
         </ul>
         <form class="form-inline my-2 my-lg-0" action="{{ url("/admin/logout") }}" method="post">
             {{csrf_field()}}
