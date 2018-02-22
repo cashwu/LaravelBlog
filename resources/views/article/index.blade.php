@@ -28,7 +28,7 @@
                                 </div>
                                 <small class="text-muted">
                                     <i class="icon-calendar"> </i>
-                                    {{  $article -> created_at }}
+                                    {{  date("Y-m-d", strtotime($article -> publish_date)) }}
                                 </small>
                             </div>
                         </div>

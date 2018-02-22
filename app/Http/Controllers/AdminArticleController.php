@@ -74,15 +74,25 @@ class AdminArticleController extends Controller
                 ->withErrors($validator)->withInput($input);
         }
 
-        $article = $this->GetArticleById($article_id);
-        $article->update($input);
+        $this->GetArticleById($article_id)->update($input);
 
         return redirect("/admin");
     }
 
-    public function delete()
+    public function delete($article_id)
     {
+        $model = [
+            "article" => $this->GetArticleById($article_id),
+            "category" => $this->GetCategory()
+        ];
 
+        return view("admin.article.delete", $model);
+    }
+
+    public function deletePost($article_id)
+    {
+        Article::destroy($article_id);
+        return redirect("/admin");
     }
 
     private function GetArticleById($article_id)

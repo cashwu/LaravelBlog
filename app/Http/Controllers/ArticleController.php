@@ -19,7 +19,7 @@ class ArticleController extends Controller
     {
         $articles = Article::where("is_publish", "=", 1)
             ->where("publish_date", "<=", date("Y-m-d"))
-            ->orderBy("created_at", "desc")
+            ->orderBy("publish_date", "desc")
             ->paginate(parent::rowPerPage);
 
         $model = [

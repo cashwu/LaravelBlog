@@ -41,6 +41,8 @@ Route::group(["prefix" => "admin"], function () {
 
             Route::get("/delete/{article_id}", "AdminArticleController@delete");
 
+            Route::post("/delete/{article_id}", "AdminArticleController@deletePost");
+
             Route::get("/details/{article_id}", "AdminArticleController@details");
         });
     });
