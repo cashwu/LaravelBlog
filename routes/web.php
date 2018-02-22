@@ -28,6 +28,17 @@ Route::group(["prefix" => "admin"], function () {
         Route::get("/", "AdminController@Index");
 
         Route::post("/logout", "AdminController@Logout");
+
+        Route::group(["prefix" => "article"], function () {
+
+            Route::get("/create", "AdminArticleController@create");
+
+            Route::get("/edit/{article_id}", "AdminArticleController@edit");
+
+            Route::get("/delete/{article_id}", "AdminArticleController@delete");
+
+            Route::get("/details/{article_id}", "AdminArticleController@details");
+        });
     });
 });
 

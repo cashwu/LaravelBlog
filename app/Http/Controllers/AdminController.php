@@ -43,6 +43,7 @@ class AdminController extends Controller
     public function Index()
     {
         $articles = Article::orderBy("created_at", "desc")
+                ->with("Category")
                 ->paginate(parent::rowPerPage);
 
         $model = [
