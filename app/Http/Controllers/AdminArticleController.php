@@ -52,15 +52,24 @@ class AdminArticleController extends Controller
         return redirect("/admin");
     }
 
+    public function details($article_id)
+    {
+        $article = Article::where("id", $article_id)
+            ->with("Category")
+            ->first();
+
+        $model = [
+            "article" => $article
+        ];
+
+        return view("admin.article.details", $model);
+    }
+
     public function edit()
     {
 
     }
 
-    public function details()
-    {
-
-    }
 
     public function delete()
     {
