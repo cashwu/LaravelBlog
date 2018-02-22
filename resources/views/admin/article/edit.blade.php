@@ -47,7 +47,7 @@
             <div class="form-group" style="position:relative;">
                 <label for="publish_date">Publish Date</label>
                 <input type="text" class="form-control" id="publish_date" name="publish_date"
-                       value="{{ old("publish_date", $article -> publish_date) }}">
+                       value="{{ old("publish_date", date("Y-m-d", strtotime($article -> publish_date)))}}">
             </div>
             <div class="form-group">
                 <div class="form-check">

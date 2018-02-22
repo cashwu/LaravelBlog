@@ -22,7 +22,7 @@
             </div>
             <div class="post-meta">
                 <p>
-                    <i class="icon-calendar"></i> {{ $article -> publish_date }} |
+                    <i class="icon-calendar"></i> {{ date("Y-m-d", strtotime($article -> publish_date)) }} |
                     <i class="icon-tags"></i>分類： {{ $article -> Category -> name }} |
                     <i class="icon-eye-open"></i>瀏覽次數： {{ $article -> view_count }}
                 </p>

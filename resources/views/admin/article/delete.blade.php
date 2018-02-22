@@ -32,7 +32,7 @@
                 <dd>{{ $article -> is_publish ? "是" : "否" }}</dd>
 
                 <dt class="control-label">PublishDate</dt>
-                <dd>{{ $article -> publish_date }}</dd>
+                <dd>{{ date("Y-m-d", strtotime($article -> publish_date)) }}</dd>
 
                 <dt class="control-label">ViewCount</dt>
                 <dd>{{ $article -> view_count }}</dd>
