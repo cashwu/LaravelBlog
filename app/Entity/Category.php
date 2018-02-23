@@ -9,4 +9,9 @@ class Category extends Model
     protected $table = "category";
 
     protected $primaryKey = "id";
+
+    protected $fillable = [
+        "id",
+        "name"
+    ];
 }

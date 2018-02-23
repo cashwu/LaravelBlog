@@ -49,6 +49,20 @@ Route::group(["prefix" => "admin"], function () {
         Route::group(["prefix" => "category"], function () {
 
             Route::get("/", "AdminCategoryController@index");
+
+            Route::get("/create", "AdminCategoryController@create");
+
+            Route::post("/create", "AdminCategoryController@createPost");
+
+            Route::get("/edit/{category_id}", "AdminCategoryController@edit");
+
+            Route::post("/edit/{category_id}", "AdminCategoryController@editPost");
+
+            Route::get("/delete/{category_id}", "AdminCategoryController@delete");
+
+            Route::post("/delete/{category_id}", "AdminCategoryController@deletePost");
+
+            Route::get("/details/{category_id}", "AdminCategoryController@details");
         });
     });
 });
