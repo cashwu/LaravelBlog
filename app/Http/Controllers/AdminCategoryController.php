@@ -49,13 +49,13 @@ class AdminCategoryController extends Controller
         return redirect("/admin/category");
     }
 
-    public function details($article_id)
+    public function details($category_id)
     {
         $model = [
-            "article" => $this->GetArticleById($article_id)
+            "category" => $this->GetCategoryById($category_id)
         ];
 
-        return view("admin.article.details", $model);
+        return view("admin.category.details", $model);
     }
 
     public function edit($article_id)
@@ -93,5 +93,11 @@ class AdminCategoryController extends Controller
         ];
 
         return view("admin.article.delete", $model);
+    }
+
+    private function GetCategoryById($category_id)
+    {
+        return Category::where("id", $category_id)
+                ->first();
     }
 }

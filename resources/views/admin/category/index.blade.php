@@ -48,11 +48,11 @@
 
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                         <li><a class="dropdown-item"
-                                               href="{{ url("admin/article/details/".$category -> id) }}">檢視</a></li>
+                                               href="{{ url("admin/category/details/".$category -> id) }}">檢視</a></li>
                                         <li><a class="dropdown-item"
-                                               href="{{ url("admin/article/edit/".$category -> id) }}">編輯</a></li>
+                                               href="{{ url("admin/category/edit/".$category -> id) }}">編輯</a></li>
                                         <li><a class="dropdown-item"
-                                               href="{{ url("admin/article/delete/".$category -> id) }}">刪除</a></li>
+                                               href="{{ url("admin/category/delete/".$category -> id) }}">刪除</a></li>
                                     </div>
                                 </div>
                             </td>
