@@ -85,14 +85,19 @@ class AdminCategoryController extends Controller
         return redirect("/admin/category");
     }
 
-    public function delete($article_id)
+    public function delete($category_id)
     {
         $model = [
-            "article" => $this->GetArticleById($article_id),
-            "category" => $this->GetCategory()
+            "category" => $this->GetCategoryById($category_id)
         ];
 
-        return view("admin.article.delete", $model);
+        return view("admin.category.delete", $model);
+    }
+
+    public function deletePost($category_id)
+    {
+        Category::destroy($category_id);
+        return redirect("/admin/category");
     }
 
     private function GetCategoryById($category_id)
