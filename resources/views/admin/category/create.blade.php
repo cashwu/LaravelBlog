@@ -12,11 +12,11 @@
 
     <h3>分類管理</h3>
 
+    @include("common.errorMessage")
 
     <fieldset>
         <legend>建立</legend>
 
-        @include("common.errorMessage")
         <form action="{{ url("/admin/category/create") }}" method="post">
             {{ csrf_field() }}
             <div class="form-group">

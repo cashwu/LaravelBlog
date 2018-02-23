@@ -37,9 +37,7 @@ class AdminCategoryController extends Controller
         $sameNameCategory = Category::where("name", $input["name"])->count() > 0;
 
         if ($sameNameCategory) {
-            $err = [
-                "msg" => "文章分類名稱不可重複"
-            ];
+            $err = $this->GetCategoryValidatorErrorMsg();
             return redirect()->back()
                 ->withErrors($err)->withInput($input);
         }
@@ -58,31 +56,33 @@ class AdminCategoryController extends Controller
         return view("admin.category.details", $model);
     }
 
-    public function edit($article_id)
+    public function edit($category_id)
     {
         $model = [
-            "article" => $this->GetArticleById($article_id),
-            "category" => $this->GetCategory()
+            "category" => $this->GetCategoryById($category_id)
         ];
 
-        return view("admin.article.edit", $model);
+        return view("admin.category.edit", $model);
     }
 
-    public function editPost($article_id)
+    public function editPost($category_id)
     {
         $input = request()->all();
-        $input["is_publish"] = request()->has("is_publish");
 
-        $validator = Validator::make($input, $this->validatorRules());
+        $sameNameCategory = Category::where("name", $input["name"])
+                ->where("id", "!=", $category_id)
+                ->count() > 0;
 
-        if ($validator->fails()) {
+        if ($sameNameCategory) {
+
             return redirect()->back()
-                ->withErrors($validator)->withInput($input);
+                ->withErrors($this -> GetCategoryValidatorErrorMsg())
+                ->withInput($input);
         }
 
-        $this->GetArticleById($article_id)->update($input);
+        $this->GetCategoryById($category_id)->update($input);
 
-        return redirect("/admin");
+        return redirect("/admin/category");
     }
 
     public function delete($article_id)
@@ -99,5 +99,15 @@ class AdminCategoryController extends Controller
     {
         return Category::where("id", $category_id)
                 ->first();
+    }
+
+    /**
+     * @return array
+     */
+    private function GetCategoryValidatorErrorMsg()
+    {
+        return [
+            "msg" => "文章分類名稱不可重複"
+        ];
     }
 }
